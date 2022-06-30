@@ -21,13 +21,13 @@ const menuItems = [
 const NavBar = () => {
   return (
     <>
-      <header class="container">
-        <img class="img" src={logo} alt="logo" />
+      <header className="container">
+        <img className="img" src={logo} alt="logo" />
 
         <nav>
           <div>
             {menuItems.map((item) => (
-              <a href="/" class="anchors" key={item.id}>
+              <a href="/" className="anchors" key={item.id}>
                 {" "}
                 {item.name}{" "}
               </a>

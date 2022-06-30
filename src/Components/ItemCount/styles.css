@@ -1,4 +1,4 @@
-.cards{ 
+.div-container{ 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,12 +8,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: grey;
+    background-color: #B1D3E3;
     border-radius: 10px;
     width: 30%;
     width: 300px;
     height: 400px;
     margin: 10px;
+    color: #4A575E;
+}
+.card:hover{
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.8);
 }
 .productImg{
     width: 200px;
@@ -22,6 +26,13 @@
 .order{
     font-family: 'roboto';
     background-color: white;
+    border-radius: 5px;
     padding: 7px 5px;
     margin-bottom: 5px;
+}
+button{
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+
 }

@@ -4,7 +4,7 @@ import "./styles.css";
 
 const ItemListContainer = ({ greeting }) => {
     return (
-        <div class="listContainer">{greeting}
+        <div className="listContainer">{greeting}
  
         </div>
     )
