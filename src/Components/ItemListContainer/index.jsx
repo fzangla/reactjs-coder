@@ -6,8 +6,8 @@ import "./styles.css";
 
 
 const Product = [
-    {id: 1, name:'A21s', image:{a21s}},
-    {id: 2, name:'A01', image:{a01}},
+    {id: 1, name:'A21s', image:{a21s}, price: 79.999},
+    {id: 2, name:'A01', image:{a01}, price: 57.999},
   ]
 const ItemListContainer = ({ greeting }) => {
 
