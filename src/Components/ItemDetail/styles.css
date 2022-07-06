@@ -36,8 +36,7 @@
     align-items: center;
     font-size: 20pt;
 }
-
-/* @media screen (min-width:768px){
-
-    
-} */
+.descripcion{
+    font-size: 12pt;
+    font-weight: 300;
+}
