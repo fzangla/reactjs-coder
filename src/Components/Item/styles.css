@@ -1,0 +1,7 @@
+.productImg{
+    max-width: 10px;
+}
+.div-container{
+    display: flex;
+    flex-direction: row;
+}

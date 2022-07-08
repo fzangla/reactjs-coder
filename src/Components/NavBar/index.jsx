@@ -2,19 +2,23 @@ import React from "react";
 import logo from "../../assets/LogoTienda.png";
 import "./styles.css";
 import CartWidget from "../CartWidget";
+import { Link, NavLink } from "react-router-dom";
 
-const menuItems = [
+const categorias = [
   {
     id: 1,
-    name: "Celulares y tablets",
+    name: "Promociones",
+    route: "/categoria/Promociones",
   },
   {
     id: 2,
-    name: "Computación",
+    name: "Computadoras",
+    route: "/categoria/Computadoras",
   },
   {
     id: 3,
-    name: "Promociones",
+    name: "Celulares",
+    route: "/categoria/Celulares",
   },
 ];
 
@@ -22,21 +26,23 @@ const NavBar = () => {
   return (
     <>
       <header className="container">
+        <Link to="/">
         <img className="img" src={logo} alt="logo" />
+        </Link>
 
-        <nav>
-          <div>
-            {menuItems.map((item) => (
-              <a href="/" className="anchors" key={item.id}>
-                {" "}
-                {item.name}{" "}
-              </a>
+        <div>
+          <nav>
+            {categorias.map((categoria) => (
+              <NavLink to={categoria.route} className="anchors" key={categoria.id}>
+                {categoria.name}
+              </NavLink>
             ))}
-          </div>
-        </nav>
-        <CartWidget />
+          </nav>
+        </div>
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </header>
-
     </>
   );
 };
