@@ -1,13 +1,19 @@
 import React from "react";
 import Item from "../Item/Item";
+import "./styles.css";
+
 
 const ItemList = ({ data }) => {
+
+ 
+
   return (
-    <>
-      {data.map((data) => (
-        <Item key={data.id} articulo={data} />
-      ))}
-    </>
+        <div className="col-m-6">
+          <h3>Listado de nuestros productos</h3>
+          <div className="item-list">
+          {data.map((product)=><Item key={product.id} product={product}/>)}
+          </div>
+        </div>
   );
 };
 

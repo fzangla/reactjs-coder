@@ -1,7 +1,4 @@
-.productImg{
-    max-width: 10px;
-}
-.div-container{
-    display: flex;
-    flex-direction: row;
+.tarjeta{
+    width: 15rem;
+    margin: 10px;
 }

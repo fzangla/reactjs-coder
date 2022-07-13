@@ -1,24 +1,33 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { products } from "../../mocks/DataBase";
+import { getProducts } from "../../mocks/DataBase";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
-  const [cargando, setCargando] = useState(true)
-
+  const [cargando, setCargando] = useState(true);
+  const { productoId } = useParams();
+ 
   useEffect(() => {
-    products
-    .then((res) => setProducto (res.find((item) => item.id === '01')))
-    .catch((error) => alert(error))
-    .finally(() => setCargando(false))
-  }, []);
-
+    getProducts
+      .then((res) => setProducto(res.find((item) => item.id === 'productoId')))
+      .catch((error) => alert(error))
+      .finally(() => setCargando(false));
+  }, [productoId]);
+  console.log(producto);
   return (
     <div>
-      <h2>
-        {cargando ? <p>cargando...!!</p> : <ItemDetail producto={producto} />}
-      </h2>
+        {cargando ? (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-grow d-flex justify-content-center "
+              role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) : (
+          <ItemDetail productDetail={producto} />
+        )}
     </div>
   );
 };

@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import { products } from "../../mocks/DataBase";
+import { getProducts } from "../../mocks/DataBase";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
-  const [data, setData] = useState([]);
+  const [listaProductos, setListaProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  const categoriaId = useParams();
-  // HACER FILTER!!!!
+  const { categoriaId } = useParams();
+
   useEffect(() => {
-    products
-      .then((res) => setData(res))
-      .catch((error) => alert(error))
-      .finally(() => setCargando(false));
+    getProducts
+    .then((res) => {
+      if (!categoriaId) {
+        setListaProductos(res);
+      } else {
+        setListaProductos((res) => res.filter((item) => item.category === categoriaId));
+      }
+    })
+    .catch((error) => alert(error))
+    .finally(() => setCargando(false));
   }, [categoriaId]);
 
   return (
     <div className="listContainer">
       <div>
-        {greeting}
-        {cargando ? <p>cargando...</p> : <ItemList data={data} />}
+        {greeting} 
+        {cargando ? (
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Cargando...</span>
+          </div>) : 
+        (<ItemList data={ listaProductos } />)}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import useInitCount from '../../hooks/useInitCount';
 
 const ItemCount = ({ productName, stock, onAdd, initial}) => {
@@ -8,12 +7,12 @@ const ItemCount = ({ productName, stock, onAdd, initial}) => {
   return (
     <>
         <div className="order">
-          <button onClick={handlerClickRestar}>-</button>
-          <span>{count}</span>
-          <button onClick={handlerClickSumar}>+</button>
+          <button className="btn btn-danger" onClick={handlerClickRestar}>-</button>
+          <span className="btn ">{count}</span>
+          <button className="btn btn-success" onClick={handlerClickSumar}>+</button>
           <span>({stock} disponibles)</span>
         </div>
-      <button onClick={() => onAdd(count)}> Agregar al carrito</button>
+      <button  className="btn btn-dark" onClick={() => onAdd(count)}> Agregar al carrito</button>
       
     </>
   );
