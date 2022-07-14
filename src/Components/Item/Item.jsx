@@ -13,7 +13,7 @@ const Item = ({ product }) => {
         <p className="card-text">Precio: ${product.price}</p>
         <button
           className="btn btn-outline-primary btn-sm"
-          onClick={() => navegar(`/producto/${product.id}`)}
+          onClick={() => navegar(`/producto/ ${product.productoId} `)}
         >
           Ver más
         </button>

@@ -11,11 +11,11 @@ const ItemDetailContainer = () => {
  
   useEffect(() => {
     getProducts
-      .then((res) => setProducto(res.find((item) => item.id === 'productoId')))
+      .then((res) => setProducto(res.find((item) => item.productoId === productoId)))
       .catch((error) => alert(error))
       .finally(() => setCargando(false));
   }, [productoId]);
-  console.log(producto);
+  console.log(producto)
   return (
     <div>
         {cargando ? (
@@ -26,10 +26,12 @@ const ItemDetailContainer = () => {
             </div>
           </div>
         ) : (
-          <ItemDetail productDetail={producto} />
+          <ItemDetail producto={producto} />
         )}
     </div>
   );
+
+
 };
 
 export default ItemDetailContainer;
